@@ -22,6 +22,16 @@ int	ft_len_tosep(char *str, char *sep)
 	return (i);
 }
 
+int	len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 char	*ft_slice_forw(char *str, char *sep)
 {
 	int i;
@@ -32,7 +42,8 @@ char	*ft_slice_forw(char *str, char *sep)
 	i = ft_len_tosep(str, sep);
 	while (str[i] && is_sep(str[i], sep))
 		i++;
-	ret = (char *) malloc(i * sizeof(char));
+	n = len(str + i);
+	ret = (char *) malloc(n * sizeof(char));
 	n = 0;
 	while (str[i])
 	{
@@ -41,15 +52,4 @@ char	*ft_slice_forw(char *str, char *sep)
 		i++;
 	}
 	return (ret);
-}
-#include <stdio.h>
-int	main(int ac, char **av)
-{
-	(void) ac;
-	char *str;
-
-	str = ft_slice_forw(av[1],av[2]);
-	printf("%s\n", str);
-	free(str);
-	return (0);
 }

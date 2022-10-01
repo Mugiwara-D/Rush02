@@ -12,6 +12,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stdio.h>
 char	*ft_open(char *file)
 {
 	char *nbf;
